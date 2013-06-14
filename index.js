@@ -55,6 +55,7 @@ module.exports = function (file) {
                 var args = node.arguments;
                 var t = 'return ' + unparse(args[0]);
                 var fpath = Function(vars, t)(file, dirname);
+                fpath = path.join(dirname, fpath);
                 var enc = args[1]
                     ? Function('return ' + unparse(args[1]))()
                     : 'utf8'
